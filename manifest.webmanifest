@@ -1,0 +1,12 @@
+{
+  "name": "Good Night Jar Premium",
+  "short_name": "Good Night Jar",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101218",
+  "theme_color": "#101218",
+  "description": "1 € ins Glas, wenn die Gute-Nacht-Nachricht vergessen wurde.",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
