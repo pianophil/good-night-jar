@@ -1,0 +1,10 @@
+import {createServer} from 'node:http';
+import {mkdirSync} from 'node:fs';
+import {dirname} from 'node:path';
+import {createApp} from './app.mjs';
+const path = process.env.DATABASE_PATH || './data/jar.sqlite';
+mkdirSync(dirname(path), {recursive:true});
+const app = createApp({database:path});
+const server = createServer(app.handle);
+server.listen(Number(process.env.PORT || 3000), '0.0.0.0', () => console.log('Good Night Jar ready'));
+for (const signal of ['SIGTERM','SIGINT']) process.on(signal, () => server.close(() => {app.close();process.exit(0)}));
